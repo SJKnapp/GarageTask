@@ -10,6 +10,10 @@ public class Garage {
 
 	private ArrayList<Vehicle> vechicles = new ArrayList<>();
 
+	public Garage(int startId) {
+		nextId = startId;
+	}
+
 	public Garage() {
 
 	}
@@ -73,7 +77,7 @@ public class Garage {
 
 	public boolean removeFirstFoundByType(String type) {
 		for (int i = 0; i < vechicles.size(); i++) {
-			if (vechicles.get(i).getClass().getTypeName().substring(8).toLowerCase().equals(type)) {
+			if (vechicles.get(i).getClass().getSimpleName().toLowerCase().equals(type)) {
 				vechicles.remove(i);
 				return true;
 			}
@@ -86,7 +90,7 @@ public class Garage {
 		ArrayList<Vehicle> toRemove = new ArrayList<>();
 
 		for (int i = 0; i < vechicles.size(); i++) {
-			if (vechicles.get(i).getClass().getTypeName().substring(8).toLowerCase().equals(type)) {
+			if (vechicles.get(i).getClass().getSimpleName().toLowerCase().equals(type)) {
 				toRemove.add(vechicles.get(i));
 			}
 		}
